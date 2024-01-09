@@ -23,7 +23,7 @@ https://www.bombmanual.com/fr/web/index.html
 Utiliser la documentation officielle de React Native pour créer une application mobile avec React Native.
 https://reactnative.dev/docs/environment-setup
 
-Première commande à taper dans le terminal pour (...)
+Executer le programme pour générer un QR code (que l'on peut scanner sur l'app Expo Go sur mon appareil Android ; secouer le portable pour mettre à jour les infos)
 ```bash
 npx expo start --tunnel
 ```
