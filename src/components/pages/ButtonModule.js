@@ -1,8 +1,88 @@
-import { StatusBar } from 'expo-status-bar';
-import { Image, Button, StyleSheet, Text, View } from 'react-native';
-import React, { useState } from 'react';
+import * as React from 'react';
+import { useState } from 'react';
+import { StyleSheet, Button, View, Text } from 'react-native';
+import Header from "../Header";
 
-export default function App() {
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+export default function ButtonModule({ navigation }) {
+
+  const styles = StyleSheet.create({
+
+    container: {
+      flex: 1,
+      margin: 10,
+    },
+  
+    header: {
+      padding: 10,
+      backgroundColor: '#C0C0C0',
+      color: '#FFF',
+      fontWeight: 'bold',
+    },
+  
+    footer: {
+      flex:1,
+      position: 'absolute',
+      bottom: 30,
+    },
+  
+    row: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+  
+    image: {
+      width: 150,
+    },
+  
+    form: {
+      position: 'relative',
+      top: 80,
+      color: '#303030',
+      flexDirection: 'column',
+    },
+  
+    h1: {
+      width: '100%',
+      fontWeight: 'bold',
+      fontSize: 24,
+      marginTop: 15,
+    },
+  
+    h2: {
+      width: '100%',
+      fontWeight: 'bold',
+      fontSize: 18,
+      marginBottom: 15,
+    },
+  
+    button: {
+      alignSelf: 'center',
+      backgroundColor: '#696969',
+      color: '#FFF',
+      fontWeight: 'bold',
+      margin: '10',
+    },
+  
+    buttonRed: {
+      backgroundColor: '#FF0000',
+    },
+  
+    buttonGreen: {
+      backgroundColor: '#32CD32',
+    },
+  
+    buttonBlue: {
+      backgroundColor: '#4169E1',
+    },
+  
+    buttonYellow: {
+      backgroundColor: '#FFD700',
+    },
+  
+  })
 
   const [step, setStep] = useState(0);
   const [battery, setBattery] = useState(0);
@@ -10,14 +90,9 @@ export default function App() {
   return (
     <View style={styles.container}>
 
-      <View style={styles.header}>
-        <Text>MANUEL SIMPLIFIÉ DE DÉSAMORÇAGE DE BOMBE</Text>
-        <Image
-          style={styles.image}
-          source={{uri: 'img:/ktane-logo.png'}}
-        />
-        <StatusBar style="auto" />
-      </View>
+      <Header />
+
+      <Text style={styles.h1}>Module du bouton</Text>
 
       {step === 0 &&  // SI (...) ALORS
         <View style={styles.form}>
@@ -193,79 +268,33 @@ export default function App() {
         </View>
       }
 
-      <View style={[styles.button, styles.buttonBack]}>
-        <Button
-          title={"Recommencer"}
-          onPress={() => {
-            setStep(0);
-          }}
-        />
+      <View style={styles.footer}>
+
+        <View style={styles.row}>
+          
+          <View style={styles.button}>
+            <Button
+              title={"Recommencer"}
+              onPress={() => {
+                setStep(0);
+              }}
+            />
+          </View>
+
+          <View style={styles.button}>
+            <Button
+              title={"Menu principal"}
+              onPress={() => {
+                navigation.navigate('Home');
+              }}
+            />
+          </View>
+
+        </View>
+
       </View>
 
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-
-  container: {
-    flex: 1,
-    margin: 10,
-  },
-
-  header: {
-    position: 'relative',
-    top: 30,
-    padding: 10,
-    backgroundColor: '#C0C0C0',
-    color: '#FFF',
-    fontWeight: 'bold',
-  },
-
-  image: {
-    width: 150,
-  },
-
-  form: {
-    position: 'relative',
-    top: 80,
-    color: '#303030',
-    flexDirection: 'column',
-  },
-
-  h2: {
-    width: '100%',
-    fontWeight: 'bold',
-    fontSize: 24,
-  },
-
-  button: {
-    alignSelf: 'center',
-    backgroundColor: '#696969',
-    color: '#FFF',
-    fontWeight: 'bold',
-    margin: '10',
-  },
-
-  buttonRed: {
-    backgroundColor: '#FF0000',
-  },
-
-  buttonGreen: {
-    backgroundColor: '#32CD32',
-  },
-
-  buttonBlue: {
-    backgroundColor: '#4169E1',
-  },
-
-  buttonYellow: {
-    backgroundColor: '#FFD700',
-  },
-
-  buttonBack: {
-    position: 'absolute',
-    bottom: 30,
-  }
-
-});
