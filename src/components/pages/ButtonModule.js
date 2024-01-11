@@ -85,7 +85,12 @@ export default function ButtonModule({ navigation }) {
   })
 
   const [step, setStep] = useState(0);
-  const [battery, setBattery] = useState(0);
+  const [battery, setBattery] = useState(1);
+
+  const handleClick = (stepNumber, batteryNumber) => {
+    setBattery(batteryNumber);
+    setStep(stepNumber);
+  }
 
   return (
     <View style={styles.container}>
@@ -101,17 +106,13 @@ export default function ButtonModule({ navigation }) {
             <Button
               style={[styles.button, styles.buttonGreen]}
               title={"Oui"}
-              onPress={() => {
-                setStep(4);
-              }}
+              onPress={() => handleClick(4, battery)}
             />
 
             <Button
               style={[styles.button, styles.buttonRed]}
               title={"Non"}
-              onPress={() => {
-                setStep(1);
-              }}
+              onPress={() => handleClick(1, battery)}
             />
 
         </View>
@@ -125,26 +126,19 @@ export default function ButtonModule({ navigation }) {
               <Button
                 style={styles.button}
                 title={"0 ou 1"}
-                onPress={() => {
-                  setStep(5);
-                }}
+                onPress={() => handleClick(5, battery)}
               />
 
               <Button
                 style={styles.button}
                 title={"2"}
-                onPress={() => {
-                  setStep(2);
-                  setBattery(2);
-                }}
+                onPress={() => handleClick(2, 2)}
               />
 
               <Button
                 style={styles.button}
                 title={"3 ou +"}
-                onPress={() => {
-                  setStep(2);
-                }}
+                onPress={() => handleClick(2, battery)}
               />
 
           </View>
@@ -158,9 +152,7 @@ export default function ButtonModule({ navigation }) {
             <Button
               style={[styles.button, styles.buttonGreen]}
               title={"Oui"}
-              onPress={() => {
-                setStep(4);
-              }}
+              onPress={() => handleClick(4, battery)}
             />
 
             <Button
@@ -170,7 +162,9 @@ export default function ButtonModule({ navigation }) {
                 {battery === 2 &&
                   setStep(5);
                 }
+                {battery !== 2 &&
                   setStep(3);
+                }
               }}
             />
 
@@ -185,17 +179,13 @@ export default function ButtonModule({ navigation }) {
               <Button
                 style={[styles.button, styles.buttonGreen]}
                 title={"Oui"}
-                onPress={() => {
-                  setStep(4);
-                }}
+                onPress={() => handleClick(4, battery)}
               />
 
               <Button
                 style={[styles.button, styles.buttonRed]}
                 title={"Non"}
-                onPress={() => {
-                  setStep(5);
-                }}
+                onPress={() => handleClick(5, battery)}
               />
 
           </View>
@@ -219,26 +209,19 @@ export default function ButtonModule({ navigation }) {
               <Button
                 style={[styles.button, styles.buttonBlue]}
                 title={"Bleue"}
-                onPress={() => {
-                  setStep(6);
-                }}
+                onPress={() => handleClick(6, battery)}
               />
-
 
               <Button
                 style={[styles.button, styles.buttonYellow]}
                 title={"Jaune"}
-                onPress={() => {
-                  setStep(7);
-                }}
+                onPress={() => handleClick(7, battery)}
               />
 
             <Button
               style={styles.button}
               title={"Blanche ou d'une autre couleur"}
-              onPress={() => {
-                setStep(8);
-              }}
+              onPress={() => handleClick(8, battery)}
             />
 
           </View>
@@ -275,9 +258,7 @@ export default function ButtonModule({ navigation }) {
           <View style={styles.button}>
             <Button
               title={"Recommencer"}
-              onPress={() => {
-                setStep(0);
-              }}
+              onPress={() => handleClick(0, 1)}
             />
           </View>
 
