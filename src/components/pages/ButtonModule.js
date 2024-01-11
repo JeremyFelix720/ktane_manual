@@ -25,12 +25,12 @@ export default function ButtonModule({ navigation }) {
     footer: {
       flex:1,
       position: 'absolute',
-      bottom: 30,
+      bottom: 20,
     },
   
     row: {
       flexDirection: 'row',
-      alignItems: 'center',
+      justifyContent: 'center',
     },
   
     image: {
@@ -39,7 +39,7 @@ export default function ButtonModule({ navigation }) {
   
     form: {
       position: 'relative',
-      top: 80,
+      top: 40,
       color: '#303030',
       flexDirection: 'column',
     },
@@ -100,25 +100,29 @@ export default function ButtonModule({ navigation }) {
       <Text style={styles.h1}>Module du bouton</Text>
 
       {step === 0 &&  // SI (...) ALORS
+
         <View style={styles.form}>
+
           <Text style={styles.h2}>Est-ce que le bouton est rouge avec "Maintenir" écrit dessus ?</Text>
 
-            <Button
-              style={[styles.button, styles.buttonGreen]}
-              title={"Oui"}
-              onPress={() => handleClick(4, battery)}
-            />
+          <Button
+            style={[styles.button, styles.buttonGreen]}
+            title={"Oui"}
+            onPress={() => handleClick(4, battery)}
+          />
 
-            <Button
-              style={[styles.button, styles.buttonRed]}
-              title={"Non"}
-              onPress={() => handleClick(1, battery)}
-            />
+          <Button
+            style={[styles.button, styles.buttonRed]}
+            title={"Non"}
+            onPress={() => handleClick(1, battery)}
+          />
 
         </View>
+
       }
       
       {step === 1 &&  // SI (...) ALORS
+
           <View style={styles.form}>
 
             <Text style={styles.h2}>Combien y a-t-il de de piles ?</Text>
@@ -142,9 +146,11 @@ export default function ButtonModule({ navigation }) {
               />
 
           </View>
+
         }
 
       {step === 2 &&  // SI (...) ALORS
+
         <View style={styles.form}>
 
           <Text style={styles.h2}>Est-ce qu'il y a écrit "Exploser" sur le bouton ?</Text>
@@ -169,9 +175,11 @@ export default function ButtonModule({ navigation }) {
             />
 
         </View>
+
       }
 
       {step === 3 &&  // SI (...) ALORS
+
           <View style={styles.form}>
 
             <Text style={styles.h2}>Est-ce qu'il y a un indicateur à côté du bouton avec écrit "FRK" dessus ?</Text>
@@ -189,17 +197,21 @@ export default function ButtonModule({ navigation }) {
               />
 
           </View>
+
         }
 
         {step === 4 &&  // SI (...) ALORS
+
           <View style={styles.form}>
 
             <Text style={styles.h2}>SOLUTION : Appuyer et relâcher immédiatement le bouton.</Text>
 
           </View>
+
         }
 
         {step === 5 &&  // SI (...) ALORS
+
           <View style={styles.form}>
 
             <Text style={styles.h2}>Maintenir le bouton appuyé et attendre mon signal pour relâcher le bouton.</Text>
@@ -225,30 +237,37 @@ export default function ButtonModule({ navigation }) {
             />
 
           </View>
+
         }
 
       {step === 6 &&  // SI (...) ALORS
+
         <View style={styles.form}>
 
           <Text style={styles.h2}>Relâcher le bouton lorsque le compte à rebours affiche un 4 à n'importe quelle position.</Text>
 
         </View>
+
       }
 
       {step === 7 &&  // SI (...) ALORS
+
         <View style={styles.form}>
 
           <Text style={styles.h2}>Relâcher le bouton lorsque le compte à rebours affiche un 5 à n'importe quelle position.</Text>
 
         </View>
+
       }
 
       {step === 8 &&  // SI (...) ALORS
+
         <View style={styles.form}>
 
           <Text style={styles.h2}>Relâcher le bouton lorsque le compte à rebours affiche un 1 à n'importe quelle position.</Text>
 
         </View>
+
       }
 
       <View style={styles.footer}>
@@ -276,6 +295,7 @@ export default function ButtonModule({ navigation }) {
       </View>
 
     </View>
+    
   );
 }
 

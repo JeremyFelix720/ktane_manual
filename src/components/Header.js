@@ -20,12 +20,12 @@ export default function Header(){
     footer: {
       flex:1,
       position: 'absolute',
-      bottom: 30,
+      bottom: 20,
     },
   
     row: {
       flexDirection: 'row',
-      alignItems: 'center',
+      justifyContent: 'center',
     },
   
     image: {
@@ -34,7 +34,7 @@ export default function Header(){
   
     form: {
       position: 'relative',
-      top: 80,
+      top: 40,
       color: '#303030',
       flexDirection: 'column',
     },
